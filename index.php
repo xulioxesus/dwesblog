@@ -13,13 +13,19 @@
   </head>
   <body>
     <div class="container">
+      <div class="row">
+        <div class="col-lg-7">
         <h1>Sitio Fácil - Home</h1>
+
+        <?php require_once './components/login_form.php';?>
 
         <p><a href="nuevo.php">Nuevo</a></p>
         
         <?php echo getListPosts(); ?>
 
         <?php echo getRecentPosts(); ?>
+        </div>
+        </div>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
