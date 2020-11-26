@@ -1,0 +1,12 @@
+- Usuarios anónimos
+	- Ver lista de posts
+	- Ver resumen dos últimos posts
+	- Ver un post
+	- Crear nuevo post
+	- Edita post
+	- Borrar post
+	
+- No usamos BBDD.
+- Bootstrap
+- Bugs:
+	- Editar crea nuevo post si cambias el título.
