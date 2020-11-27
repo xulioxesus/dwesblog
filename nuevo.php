@@ -1,3 +1,4 @@
+<?php require_once 'lib/security.php'?>
 <!doctype html>
 <html lang="en">
   <head>

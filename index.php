@@ -17,6 +17,18 @@
         <div class="col-lg-7">
         <h1>Sitio Fácil - Home</h1>
 
+        <?php
+          session_start();
+
+          if (isset($_SESSION['info'])){
+            echo $_SESSION['info'];
+          }
+
+          if (isset($_SESSION['error'])){
+            echo $_SESSION['error'];
+          }
+        ?>
+
         <?php require_once './components/login_form.php';?>
 
         <p><a href="nuevo.php">Nuevo</a></p>

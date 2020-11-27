@@ -1,3 +1,4 @@
+<?php require_once 'lib/security.php'?>
 <?php require_once 'utils.php'?>
 <!doctype html>
 <html lang="en">
