@@ -1,14 +1,10 @@
 <?php
-session_start();
 function isAllowed(){
+    session_start();
     if (isset($_SESSION['autenticado']) && $_SESSION['autenticado']){
         return true;
     }
     else{
         return false;
     }
-}
-
-if (!isAllowed()){
-    header("Location: index.php");
 }

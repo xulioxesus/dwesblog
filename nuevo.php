@@ -1,4 +1,9 @@
 <?php require_once 'lib/security.php'?>
+<?php
+if (!isAllowed()) {
+    header("Location: index.php");
+}
+?>
 <!doctype html>
 <html lang="en">
   <head>

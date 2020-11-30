@@ -1,4 +1,4 @@
-<?php require_once 'utils.php' ?>
+<?php require_once 'utils.php'?>
 
 <!doctype html>
 <html lang="en">
@@ -14,25 +14,38 @@
   <body>
     <div class="container">
       <div class="row">
-        <div class="col-lg-7">
+        <div class="col-lg-9">
         <h1>Sitio Fácil - Home</h1>
 
         <?php
-          session_start();
+session_start();
 
-          if (isset($_SESSION['info'])){
-            echo $_SESSION['info'];
-          }
+if (isset($_SESSION['info'])) {
+    echo '<div class="alert alert-primary" role="alert">';
+    echo $_SESSION['info'];
+    echo "</div>";
+    unset($_SESSION['info']);
+}
 
-          if (isset($_SESSION['error'])){
-            echo $_SESSION['error'];
-          }
-        ?>
+if (isset($_SESSION['error'])) {
+    echo '<div class="alert alert-danger" role="alert">';
+    echo $_SESSION['error'];
+    echo "</div>";
+    unset($_SESSION['error']);
+}
+?>
+        </div>
+        <div class="col-lg-3">
+          <?php require_once './components/login_form.php';?>
+        </div>
+        </div>
+        <div class="row">
+        
 
-        <?php require_once './components/login_form.php';?>
+        <div class="col-lg-9">
 
         <p><a href="nuevo.php">Nuevo</a></p>
-        
+
         <?php echo getListPosts(); ?>
 
         <?php echo getRecentPosts(); ?>

@@ -13,10 +13,12 @@ if (isset($_REQUEST['entrar'])) {
         $_SESSION['error'] = 'Usuario o contraseña incorrecta';
         unset($_SESSION['info']);
     }
-}
-else if (isset($_REQUEST['salir'])) {
+} else if (isset($_REQUEST['salir'])) {
     $_SESSION = array();
     session_destroy();
+    session_start();
+    $_SESSION['autenticado'] = false;
+    $_SESSION['info'] = 'Sesión terminada';
 }
 
 header("Location: index.php");

@@ -1,5 +1,11 @@
 <?php require_once 'lib/security.php'?>
+<?php
+if (!isAllowed()) {
+    header("Location: index.php");
+}
+?>
 <?php require_once 'utils.php'?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -17,9 +23,9 @@
 
         <form action="guardar.php" method="post">
   <label for="titulo">Título: </label>
-  <input type="text" id="titulo" name="titulo" value="<?php echo $_GET['nombre'];?>"><br>
+  <input type="text" id="titulo" name="titulo" value="<?php echo $_GET['nombre']; ?>"><br>
   <label for="descripcion">Descripción:</label>
-  <input type="textarea" id="descripcion" name="descripcion" value="<?php echo getPostContent($_GET['nombre']);?>"><br>
+  <input type="textarea" id="descripcion" name="descripcion" value="<?php echo getPostContent($_GET['nombre']); ?>"><br>
   <input type="submit" value="Guardar">
 </form>
         <a href="index.php">Volver</a>
