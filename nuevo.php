@@ -1,4 +1,5 @@
 <?php require_once 'lib/security.php'?>
+<?php require_once 'lib/utils.php'?>
 <?php
 if (!isAllowed()) {
     header("Location: index.php");
@@ -18,6 +19,10 @@ if (!isAllowed()) {
   <body>
     <div class="container">
         <h1>Sitio Fácil - Nuevo</h1>
+        <?php
+echo getInfoMessage();
+echo getErrorMessage();
+?>
 
         <form action="guardar.php" method="post">
   <label for="titulo">Título: </label>

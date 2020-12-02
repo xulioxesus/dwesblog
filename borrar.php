@@ -1,5 +1,6 @@
 <?php
 require_once 'lib/security.php';
+require_once 'lib/utils.php';
 
 session_start();
 
@@ -7,11 +8,10 @@ if (isAllowed()) {
     $nombre = $_GET['nombre'];
 
     unlink("posts/$nombre");
-    $_SESSION['info'] = 'Post Borrado';
-    unset($_SESSION['error']);
+    
+    setInfoMessage('Post Borrado');
 }else{
-    $_SESSION['error'] = 'Acción no permitida';
-    unset($_SESSION['info']);
+    setErrorMessage('Acción no permitida');
 }
 
 header("Location: index.php");

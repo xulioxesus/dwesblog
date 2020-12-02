@@ -1,4 +1,4 @@
-<?php require_once 'utils.php'?>
+<?php require_once 'lib/utils.php'?>
 
 <!doctype html>
 <html lang="en">
@@ -18,21 +18,8 @@
         <h1>Sitio Fácil - Home</h1>
 
         <?php
-session_start();
-
-if (isset($_SESSION['info'])) {
-    echo '<div class="alert alert-primary" role="alert">';
-    echo $_SESSION['info'];
-    echo "</div>";
-    unset($_SESSION['info']);
-}
-
-if (isset($_SESSION['error'])) {
-    echo '<div class="alert alert-danger" role="alert">';
-    echo $_SESSION['error'];
-    echo "</div>";
-    unset($_SESSION['error']);
-}
+echo getInfoMessage();
+echo getErrorMessage();
 ?>
         </div>
         <div class="col-lg-3">
@@ -40,16 +27,13 @@ if (isset($_SESSION['error'])) {
         </div>
         </div>
         <div class="row">
-        
+          <div class="col-lg-9">
 
-        <div class="col-lg-9">
+            <?php echo getMainActions(); ?>
+            <?php echo getListPosts(); ?>
+            <?php echo getRecentPosts(); ?>
 
-        <p><a href="nuevo.php">Nuevo</a></p>
-
-        <?php echo getListPosts(); ?>
-
-        <?php echo getRecentPosts(); ?>
-        </div>
+          </div>
         </div>
     </div>
     <!-- Optional JavaScript -->
