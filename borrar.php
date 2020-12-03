@@ -8,9 +8,9 @@ if (isAllowed()) {
     $nombre = $_GET['nombre'];
 
     unlink("posts/$nombre");
-    
+
     setInfoMessage('Post Borrado');
-}else{
+} else {
     setErrorMessage('Acción no permitida');
 }
 

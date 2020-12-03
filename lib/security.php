@@ -1,10 +1,10 @@
 <?php
-function isAllowed(){
+function isAllowed()
+{
     session_start();
-    if (isset($_SESSION['autenticado']) && $_SESSION['autenticado']){
+    if (isset($_SESSION['autenticado']) && $_SESSION['autenticado']) {
         return true;
-    }
-    else{
+    } else {
         return false;
     }
 }
