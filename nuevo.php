@@ -25,15 +25,10 @@ if (!isAllowed()) {
         <?php
         echo getInfoMessage();
         echo getErrorMessage();
-        ?>
-
-        <form action="guardar.php" method="post">
-            <label for="titulo">Título: </label>
-            <input type="text" id="titulo" name="titulo"><br>
-            <label for="descripcion">Descripción:</label>
-            <input type="textarea" id="descripcion" name="descripcion"><br>
-            <input type="submit" value="Guardar">
-        </form>
+               
+        getPost($titulo, $descripcion);
+        require_once 'components/edit_form.php';
+?>
         <a href="index.php">Volver</a>
     </div>
     <!-- Optional JavaScript -->

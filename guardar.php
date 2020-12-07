@@ -16,10 +16,13 @@ if (isAllowed()) {
             header("Location: index.php");
         } else {
             setErrorMessage('Error al crear el post');
+            setPost($titulo, $contenido);
             header("Location: nuevo.php");
         }
     } else {
         setErrorMessage('Ya existe un post con el mismo nombre');
+        $_SESSION['descripcion'] = $contenido;
+        $_SESSION['titulo'] = $titulo;
         header("Location: nuevo.php");
     }
 } else {

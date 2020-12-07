@@ -22,17 +22,13 @@ if (!isAllowed()) {
 
 <body>
     <div class="container">
-        <h1>Sitio Fácil - Nuevo</h1>
-
-        <form action="guardar.php" method="post">
-            <label for="titulo">Título: </label>
-            <input type="text" id="titulo" name="titulo" value="<?php echo $_GET['nombre']; ?>"><br>
-            <label for="descripcion">Descripción:</label>
-            <input type="textarea" id="descripcion" name="descripcion"
-                value="<?php echo getPostContent($_GET['nombre']); ?>"><br>
-            <input type="submit" value="Guardar">
-        </form>
-        <a href="index.php">Volver</a>
+        <h1>Sitio Fácil - Editar</h1>
+<?php
+    $titulo = $_REQUEST['nombre'];
+    $descripcion = getPostContent($_REQUEST['nombre']);
+    require_once 'components/edit_form.php';
+?>
+    <a href="index.php">Volver</a>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

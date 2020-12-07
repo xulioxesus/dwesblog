@@ -33,7 +33,11 @@ echo getErrorMessage();
             <div class="col-lg-9">
 
                 <?php echo getMainActions(); ?>
+
+                <h2>Lista de posts</h2>
                 <?php echo getListPosts(); ?>
+
+                <h2>Posts recientes</h2>
                 <?php echo getRecentPosts(); ?>
 
             </div>

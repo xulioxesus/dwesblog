@@ -6,14 +6,14 @@ function getListPosts()
     $directorio = 'posts';
     $ficheros = array_diff(scandir($directorio), array('..', '.'));
 
-    $resultado = "<ul>\n";
+    $resultado = "<ul class=\"list-group\">\n";
 
     foreach ($ficheros as $fichero) {
-        $resultado .= "<li>";
-        $resultado .= '<a href="ver.php?nombre=' . urlencode($fichero) . '">' . $fichero . '</a>';
+        $resultado .= '<li class="list-group-item">';
+        $resultado .= '<a href="ver.php?nombre=' . urlencode($fichero) . '">' . $fichero . '</a> ';
         if (isAllowed()) {
-            $resultado .= '<a href="borrar.php?nombre=' . urlencode($fichero) . '"> Borrar</a>';
-            $resultado .= '<a href="editar.php?nombre=' . urlencode($fichero) . '"> Editar</a>';
+            $resultado .= '<a class="btn btn-danger" href="borrar.php?nombre=' . urlencode($fichero) . '">Borrar</a> ';
+            $resultado .= '<a class="btn btn-warning" href="editar.php?nombre=' . urlencode($fichero) . '">Editar</a>';
         }
         $resultado .= "</li>\n";
     }
@@ -62,7 +62,7 @@ function getMainActions()
     $resultado = '';
 
     if (isAllowed()) {
-        $resultado .= '<p><a href="nuevo.php">Nuevo</a></p>';
+        $resultado .= '<p><a class="btn btn-primary" href="nuevo.php">Nuevo</a></p>';
     }
 
     return $resultado;
@@ -74,8 +74,10 @@ function getInfoMessage()
     $resultado = '';
 
     if (isset($_SESSION['info'])) {
-        $resultado .= '<div class="alert alert-primary" role="alert">';
+        $resultado .= '<div class="alert alert-primary alert-dismissible fade show" role="alert">';
         $resultado .= $_SESSION['info'];
+        $resultado .= '<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span></button>';
         $resultado .= "</div>";
         unset($_SESSION['info']);
     }
@@ -89,8 +91,10 @@ function getErrorMessage()
     $resultado = '';
 
     if (isset($_SESSION['error'])) {
-        $resultado .= '<div class="alert alert-danger" role="alert">';
+        $resultado .= '<div class="alert alert-danger alert-dismissible fade show" role="alert">';
         $resultado .= $_SESSION['error'];
+        $resultado .= '<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span></button>';
         $resultado .= "</div>";
         unset($_SESSION['error']);
     }
@@ -108,4 +112,18 @@ function setErrorMessage($message){
     
     session_start();
     $_SESSION['error'] = $message;
+}
+
+function setPost($titulo, $contenido){
+    session_start();
+    $_SESSION['descripcion'] = $contenido;
+    $_SESSION['titulo'] = $titulo;
+}
+
+function getPost(&$titulo, &$contenido){
+    session_start();
+    $titulo = $_SESSION['titulo'];
+    $contenido = $_SESSION['descripcion'];
+    unset($_SESSION['titulo']);
+    unset($_SESSION['descripcion']);
 }
