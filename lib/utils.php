@@ -70,7 +70,9 @@ function getMainActions()
 
 function getInfoMessage()
 {
-    session_start();
+    if (session_id() == "")
+        session_start();
+        
     $resultado = '';
 
     if (isset($_SESSION['info'])) {
@@ -87,7 +89,9 @@ function getInfoMessage()
 
 function getErrorMessage()
 {
-    session_start();
+    if (session_id() == "")
+        session_start();
+
     $resultado = '';
 
     if (isset($_SESSION['error'])) {
@@ -104,24 +108,29 @@ function getErrorMessage()
 
 function setInfoMessage($message){
     
-    session_start();
+    if (session_id() == "")
+        session_start();
+
     $_SESSION['info'] = $message;
 }
 
 function setErrorMessage($message){
     
-    session_start();
+    if (session_id() == "")
+        session_start();
     $_SESSION['error'] = $message;
 }
 
 function setPost($titulo, $contenido){
-    session_start();
+    if (session_id() == "")
+        session_start();
     $_SESSION['descripcion'] = $contenido;
     $_SESSION['titulo'] = $titulo;
 }
 
 function getPost(&$titulo, &$contenido){
-    session_start();
+    if (session_id() == "")
+        session_start();
     $titulo = $_SESSION['titulo'];
     $contenido = $_SESSION['descripcion'];
     unset($_SESSION['titulo']);

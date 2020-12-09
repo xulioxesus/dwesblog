@@ -27,6 +27,7 @@ if (!isAllowed()) {
         echo getErrorMessage();
                
         getPost($titulo, $descripcion);
+        $origen = 'nuevo';
         require_once 'components/edit_form.php';
 ?>
         <a href="index.php">Volver</a>

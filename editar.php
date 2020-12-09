@@ -26,6 +26,7 @@ if (!isAllowed()) {
 <?php
     $titulo = $_REQUEST['nombre'];
     $descripcion = getPostContent($_REQUEST['nombre']);
+    $origen = 'editar';
     require_once 'components/edit_form.php';
 ?>
     <a href="index.php">Volver</a>

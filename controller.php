@@ -1,6 +1,8 @@
 <?php
 require_once 'lib/utils.php';
-session_start();
+
+if (session_id() == "")
+  session_start();
 
 if (isset($_REQUEST['entrar'])) {
 
@@ -17,7 +19,8 @@ if (isset($_REQUEST['entrar'])) {
     $_SESSION = array();
     session_destroy();
 
-    session_start();
+    if (session_id() == "")
+        session_start();
     $_SESSION['autenticado'] = false;
     setInfoMessage('Sesión terminada');
 }

@@ -8,5 +8,5 @@
         <label for="descripcion">Descripción</label>
         <textarea class="form-control" name="descripcion" id="descripcion" rows="20"><?=$descripcion?></textarea>
     </div>
-    <button type="submit" class="btn btn-primary" value="Guardar">Guardar</button>
+    <button type="submit" class="btn btn-primary" name="<?=$origen?>">Guardar</button>
 </form>
